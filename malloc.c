@@ -115,6 +115,7 @@ void* my_malloc(size_t size){
     block of memory
 */
 void my_free(void* ptr){
+    if(ptr == NULL) return;
     block_t* block = (block_t*)((char*)ptr - BLOCK_SIZE);
     block-> free = 1;  
     block_t* current = heap_head;
